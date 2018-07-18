@@ -1,2 +1,2 @@
 # study
-Learning
+Writing someting about my work.
