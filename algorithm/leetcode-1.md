@@ -14,8 +14,9 @@ return [0, 1].
 ```
 /**
  * Note: The returned array must be malloced, assume caller calls free().
- * O(n*n)
+ * O(n*n) 52ms
  * T(1)
+ * beats 82.97%
  */
 int* twoSum(int* nums, int numsSize, int target) {
     int* ret = malloc(2 * sizeof(int)); // 分配内存空间
