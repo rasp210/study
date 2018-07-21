@@ -1,7 +1,7 @@
 # Study
 Writing someting about my work.
 
-### [Algorithm](https://github.com/symi210/study/blob/master/algorith)
+### [Algorithm](https://github.com/symi210/study/blob/master/algorithm)
 
 ### [Database](https://github.com/symi210/study/blob/master/database)
 
