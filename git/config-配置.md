@@ -40,6 +40,18 @@ ul
 blink
 reverse 
 ```
+- 别名
+```
+git config --global alias.st status
+添加配置后可以直接用别名执行命令，如：`git st`
+git config --global alias.br branch
+git config --global alias.co checkout
+git config --global alias.ci commit 
+```
+- 推送映射
+```
+git config --global push.default simple
+```
 - 检查配置信息
 ```
 git config --list
