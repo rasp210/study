@@ -28,22 +28,33 @@ Package name (<vendor>/<name>) [aaa/composer]: `test/xxx`
 Description []: `Here is the description!`
 
 Author [aaa <aaa@mail.com>, n to skip]: `author_test <author_test@email.com>` // *不允许下划线*
+
  Invalid author string.  Must be in the format: John Smith <john@example.com> 
+
 Author [aaa <aaa@mail.com>, n to skip]: `testauthor <testauthor@email.com>`
+
 Minimum Stability []: `dev` // *后面介绍*
+
 Package Type (e.g. library, project, metapackage, composer-plugin) []: `library`
+
 License []: `MIT`
 
 Define your dependencies.
 
 Would you like to define your dependencies (require) interactively [yes]? `yes`
+
 Search for a package: `php`
+
 Enter the version constraint to require (or leave blank to use the latest version): `7.1`
+
 Search for a package: // *回车*
+
 Would you like to define your dev dependencies (require-dev) interactively [yes]? `yes` // *输入yes,y,no,n中的一个*
+
 Search for a package: `phpunit/phpunit`
 
 Enter the version constraint to require (or leave blank to use the latest version): `7.0`
+
 Search for a package:  // *回车*
 
 {
