@@ -24,7 +24,9 @@ $ `composer init`
 This command will guide you through creating your composer.json config.
 
 Package name (<vendor>/<name>) [aaa/composer]: `test/xxx`
+  
 Description []: `Here is the description!`
+
 Author [aaa <aaa@mail.com>, n to skip]: `author_test <author_test@email.com>` // *不允许下划线*
  Invalid author string.  Must be in the format: John Smith <john@example.com> 
 Author [aaa <aaa@mail.com>, n to skip]: `testauthor <testauthor@email.com>`
