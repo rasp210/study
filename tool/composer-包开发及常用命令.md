@@ -1,14 +1,14 @@
 # Composer 包开发及常用命令
 
-#### 一、包开发
+## 一、包开发
 
 假设已经安装了 composer。
 
-##### 1. 在 [github](https://github.com/new) 上创建一个仓库
+### 1. 在 [github](https://github.com/new) 上创建一个仓库
 
 添加仓库名、描述，并勾选 `Initialize this repository with a README` ，然后点击 `Create repository` 即可。最后把远程仓库 clone 到本地。
 
-##### 2. 创建 composer.json 文件
+### 2. 创建 composer.json 文件
 
 开发包之前最重要的一步是创建 `composer.json` ，它用来描述项目的依赖和其他元信息等。具体步骤如下：
 
@@ -81,9 +81,28 @@ Do you confirm generation [yes]? `y`
 
 ---
 
+### 3. composer.json 内容说明
 通过以上步骤，将生成一个 `composer.json` 的文件，里面包括的 key 值有：require、require-dev、name、description、type、minimum-stability 等，下面一一介绍：
 
-**require**
+**name**
+
+包名。也是指 vendor 名和项目名，通常形式为以斜杠分隔的两个字符串，目的是避免命名冲突。
+
+```
+"name": "sunny-daisy/video",
+```
+
+- ** description**
+描述
+
+- **type**
+类型，可选值有：
+
+- **license**
+
+- **authors**
+
+- **require**
 
 指定项目的依赖。require: {包名: 版本限制, ……}
 
@@ -92,14 +111,6 @@ Do you confirm generation [yes]? `y`
     "php": "^7.1",
     "monolog/monolog": "1.0.*"
 }
-```
-
-**name**
-
-包名。也是指 vendor 名和项目名，通常形式为以斜杠分隔的两个字符串，目的是避免命名冲突。
-
-```
-"name": "sunny-daisy/video",
 ```
 
 **minimum-stability**
