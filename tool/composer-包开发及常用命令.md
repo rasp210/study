@@ -92,7 +92,7 @@ Do you confirm generation [yes]? `y`
 "name": "sunny-daisy/video",
 ```
 
-- ** description**
+- **description**
 描述
 
 - **type**
