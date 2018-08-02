@@ -115,29 +115,24 @@ Do you confirm generation [yes]? `y`
 
 **minimum-stability**
 
-#### 二、常用命令
+## 二、常用命令
+### Usage
+`composer command [options] [arguments]`
 
--Usage-
+### composer | composer list
+查看所有命令列表
 
-`command [options] [arguments]`
+### composer show
+列出包的信息，包括包名、版本、描述
+```
+justinrainbow/json-schema 5.2.7  A library to validate a json schema.
+mk-j/php_xlsxwriter       0.37   PHP Library to write XLSX files
+```
 
-Options
+### composer <COMMAND> --help
+列出 COMMAND 详细使用说明
 
-`-h` or `--help` 使用帮助
-
-`-q` or `--quiet` 不输出任何信息
-
-`-V` or `--version` 展示版本
-
-`--ansi` 强制 ANSI 输出
-
-Available commands
-
-`composer` or `composer list` 查看所有命令列表
-
-`composer COMMAND --help` 列出 COMMAND 详细使用说明
-
-#### 三、参考文献
+## 三、参考文献
 
 [1.Github](https://github.com)
 
@@ -145,7 +140,7 @@ Available commands
 
 [3.PHP 标准规范](https://psr.phphub.org/)
 
-#### 四、附录
+## 四、附录
 ```
    ______
   / ____/___  ____ ___  ____  ____  ________  _____
