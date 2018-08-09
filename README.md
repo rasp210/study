@@ -3,7 +3,6 @@
 Writing someting about my work.
 
 ## A
------
 ### [Algorithm](https://github.com/rasp210/study/blob/master/algorithm)
 
 ##### leetcode
@@ -12,9 +11,9 @@ Writing someting about my work.
 ##### random
 1. [几种常见的排序算法](https://github.com/rasp210/study/blob/master/algorithm/sort.md)
 2. [数组循环右移k位](https://github.com/rasp210/study/blob/master/algorithm/array-cycle-right-shift.md)
+-----
 
 ## D
------
 ### [Database](https://github.com/rasp210/study/blob/master/database)
 
 ##### [MySQL](https://github.com/rasp210/study/blob/master/database/mysql)
@@ -24,52 +23,62 @@ Writing someting about my work.
 
 ##### [Redis](https://github.com/rasp210/study/blob/master/database/redis)
 ##### [MongoDB](https://github.com/rasp210/study/blob/master/database/mongodb)
+-----
 
 ### [Design Pattern](https://github.com/rasp210/study/blob/master/design-pattern)
-
 ##### [设计模式](https://github.com/rasp210/study/blob/master/design-pattern/design-pattern.md)
+-----
 
 ### [Docker](https://github.com/rasp210/study/tree/master/git)
+-----
 
 ## E
------
 ### [Exception](https://github.com/rasp210/study/blob/master/exceptions/exceptions.md)
 遇到的各种异常/错误/问题等。
 1. [Mac terminal ls 别名设置带颜色失败](https://github.com/rasp210/study/blob/master/exceptions/mac-alias-ls-color.md)
 
-## G
 -----
+
+## G
 ### [Git](https://github.com/rasp210/study/tree/master/git)
 Git 是分布式版本控制系统的一种。客户端把仓库完整地镜像下来，这样，任何一处协同工作用的服务器发生故障，都可以通过任何一个镜像出来的本地仓库恢复。因为每一次的克隆操作，实际上都是一次代码仓库的完整备份。
 1. [简介及配置](https://github.com/rasp210/study/tree/master/git/intro-config.md)
 2. [命令](https://github.com/rasp210/study/tree/master/git/command.md)
 3. [冲突解决](https://github.com/rasp210/study/tree/master/git/conflict.md)
+-----
 
 ## L
------
 ### [Linux](https://github.com/rasp210/study/blob/master/linux)
+-----
 
 ## N
------
 ### [Network](https://github.com/rasp210/study/blob/master/network)
 
-## O
 -----
+
+## O
 ### [Operating System](https://github.com/rasp210/study/blob/master/os)
 
-## P
 -----
+
+## P
 ### [PHP](https://github.com/rasp210/study/blob/master/php)
+
+-----
 
 ### [Python](https://github.com/rasp210/study/blob/master/python)
 
-## S
 -----
+
+## S
 ### [Security](https://github.com/rasp210/study/blob/master/security)
+
 常见网络攻击，安全问题处理等。
 
-## T
 -----
+
+## T
 ### [Tool](https://github.com/rasp210/study/blob/master/tool)
 Excel，Markdown等工具的使用。
 1. [Excel](https://github.com/rasp210/study/blob/master/tool/excel.md)
+-----
