@@ -3,20 +3,18 @@
 Writing someting about my work.
 
 ### [Algorithm](https://github.com/rasp210/study/blob/master/algorithm)
+1. [数组循环右移k位](https://github.com/rasp210/study/blob/master/algorithm/array-cycle-right-shift.md)
 
 ### [Database](https://github.com/rasp210/study/blob/master/database)
 
 ##### [MySQL](https://github.com/rasp210/study/blob/master/database/mysql)
+1. [Engine 引擎](https://github.com/rasp210/study/blob/master/database/mysql/engine.md)
+2. [Index 索引](https://github.com/rasp210/study/blob/master/database/mysql/index.md)
+3. [Transaction 事务](https://github.com/rasp210/study/blob/master/database/mysql/transaction.md)
 
-###### [1. Engine 引擎](https://github.com/rasp210/study/blob/master/database/mysql/engine.md)
+##### [Redis](https://github.com/rasp210/study/blob/master/database/redis)
 
-###### [2. Index 索引](https://github.com/rasp210/study/blob/master/database/mysql/index.md)
-
-###### [3. Transaction 事务](https://github.com/rasp210/study/blob/master/database/mysql/transaction.md)
-
-### [Redis](https://github.com/rasp210/study/blob/master/database/redis)
-
-### [MongoDB](https://github.com/rasp210/study/blob/master/database/mongodb)
+##### [MongoDB](https://github.com/rasp210/study/blob/master/database/mongodb)
 
 ### [Operating System](https://github.com/rasp210/study/blob/master/os)
 
