@@ -8,11 +8,11 @@ Writing someting about my work.
 
 ##### [MySQL](https://github.com/rasp210/study/blob/master/database/mysql)
 
-###### [1.Engine 引擎](https://github.com/rasp210/study/blob/master/database/mysql/engine.md)
+###### [1. Engine 引擎](https://github.com/rasp210/study/blob/master/database/mysql/engine.md)
 
-###### [2.Index 索引](https://github.com/rasp210/study/blob/master/database/mysql/index.md)
+###### [2. Index 索引](https://github.com/rasp210/study/blob/master/database/mysql/index.md)
 
-###### [3.Transaction 事务](https://github.com/rasp210/study/blob/master/database/mysql/transaction.md)
+###### [3. Transaction 事务](https://github.com/rasp210/study/blob/master/database/mysql/transaction.md)
 
 ### [Redis](https://github.com/rasp210/study/blob/master/database/redis)
 
