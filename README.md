@@ -4,22 +4,18 @@ Writing someting about my work.
 
 ## A
 ### [Algorithm](https://github.com/rasp210/study/blob/master/algorithm)
-
-##### leetcode
-1. [Two Sum](https://github.com/rasp210/study/blob/master/algorithm/leetcode-1.md)
-
-##### random
-1. [几种常见的排序算法](https://github.com/rasp210/study/blob/master/algorithm/sort.md)
-2. [数组循环右移k位](https://github.com/rasp210/study/blob/master/algorithm/array-cycle-right-shift.md)
+#### [LeetCode](https://github.com/rasp210/study/blob/master/algorithm/leetcode.md)
+#### [几种常见的排序算法](https://github.com/rasp210/study/blob/master/algorithm/sort.md)
+#### [数组循环右移k位](https://github.com/rasp210/study/blob/master/algorithm/array-cycle-right-shift.md)
 -----
 
 ## D
 ### [Database](https://github.com/rasp210/study/blob/master/database)
-
 ##### [MySQL](https://github.com/rasp210/study/blob/master/database/mysql)
 1. [Engine 引擎](https://github.com/rasp210/study/blob/master/database/mysql/engine.md)
 2. [Index 索引](https://github.com/rasp210/study/blob/master/database/mysql/index.md)
 3. [Transaction 事务](https://github.com/rasp210/study/blob/master/database/mysql/transaction.md)
+4. [Explain](https://github.com/rasp210/study/blob/master/database/mysql/explain.md)
 
 ##### [Redis](https://github.com/rasp210/study/blob/master/database/redis)
 ##### [MongoDB](https://github.com/rasp210/study/blob/master/database/mongodb)

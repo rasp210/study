@@ -293,9 +293,12 @@ possible_keys: PRIMARY
 
 #### 6）fulltext
 
+
 #### 7）ref_or_null
 
-#### 8）index_merge  
+
+#### 8）index_merge
+
 
 #### 9）unique_subquery  
 
@@ -337,7 +340,10 @@ key列显示MySQL实际使用的索引。如果没有选择索引，键是NULL�
 
 ### 七、key_len
 
-key_len列显示MySQL决定使用的键长度。如果键是NULL，则长度为NULL。使用的索引的长度。在不损失精确性的情况下，长度越短越好 。
+key_len列显示MySQL决定使用的键长度。
+1. 如果键是NULL，则长度为NULL。
+2. 如果是索引，则长度为匹配到几个key的长度。使用的索引的长度，在不损失精确性的情况下，长度越短越好。
+3. 如果匹配的 key 是 Not Null 的，则长度即为类型长度，否则为长度+1，因为Null属性占1字节。 
 
 - 字符串
   - char(n): n 字节长度
@@ -352,7 +358,51 @@ key_len列显示MySQL决定使用的键长度。如果键是NULL，则长度为N
   - DATE: 3字节
   - TIMESTAMP: 4字节
   - DATETIME: 8字节
-- 字段属性: NULL 属性 占用一个字节，如果一个字段是 NOT NULL 的，则没有此属性，即key_len不再在原基础上加1 
+- 字段属性: NULL 属性 占用一个字节，如果一个字段是 NOT NULL 的，则没有此属性，即key_len不再在原基础上加1
+
+```mysql
+mysql> EXPLAIN SELECT * FROM `course` WHERE course_name = '课程1' \G;
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: course
+         type: index
+possible_keys: NULL
+          key: sid_cn_score_index  // sid(Not Null):4 cn(Not Null):100*3+2 score(Not Null):50*3+2
+      key_len: 458 // 4+100*3+2+50*3+2
+          ref: NULL
+         rows: 18
+        Extra: Using where; Using index
+1 row in set (0.00 sec)
+
+mysql> EXPLAIN SELECT * FROM `course` WHERE sid = 1 and course_name = '课程1' \G;
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: course
+         type: ref
+possible_keys: sid_cn_score_index
+          key: sid_cn_score_index // sid(Not Null):4 cn(Not Null):100*3+2
+      key_len: 306 // 4+100*3+2
+          ref: const,const
+         rows: 1
+        Extra: Using where; Using index
+1 row in set (0.00 sec)
+
+mysql> EXPLAIN SELECT * FROM `course` WHERE sid = 1 \G;
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: course
+         type: ref
+possible_keys: sid_cn_score_index
+          key: sid_cn_score_index // sid(Not Null):4
+      key_len: 4 // 4
+          ref: const
+         rows: 2
+        Extra: Using index
+1 row in set (0.00 sec)
+``` 
 
 ### 八、ref
 
