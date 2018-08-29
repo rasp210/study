@@ -1,8 +1,3 @@
-#目录   
-[1.Two Sum](https://github.com/rasp210/study/edit/master/algorithm/leetcode.md#1Two-Sum)   
-[2.Add Two Numbers](https://github.com/rasp210/study/edit/master/algorithm/leetcode.md#2Add-Two-Numbers)   
-[3.Longoest Substring Without Repeating Characters](https://github.com/rasp210/study/edit/master/algorithm/leetcode.md#3Longoest-Substring-Without-Repeating-Characters)   
-
 # 1.Two Sum
 
 >Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.   
@@ -20,9 +15,6 @@
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
- * O(n*n) 52ms
- * T(1)
- * beats 82.97%
  */
 int* twoSum(int* nums, int numsSize, int target) {
     int* ret = malloc(2 * sizeof(int)); // 分配内存空间
@@ -60,6 +52,14 @@ int* twoSum(int* nums, int numsSize, int target) {
 >Space: 128   
 >Defeat: 53.9%   
 ```c
+/**
+ * 1.用一个int类型的数组map来存储字符-索引
+ * 2.用两个索引分别指向当前无重复子串的最左left和最右right索引
+ * 3.left和right只增不减
+ * 4.left取left和命中map中的索引的较大值
+ * 5.right每次循环+1
+ * 6.每次计算子串的长度取最大值
+ */
 #include <stdio.h>
 #include <string.h>
 
