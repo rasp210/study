@@ -1,16 +1,23 @@
+#目录   
+[1.Two Sum](https://github.com/rasp210/study/edit/master/algorithm/leetcode.md#1Two-Sum)   
+[2.Add Two Numbers](https://github.com/rasp210/study/edit/master/algorithm/leetcode.md#2Add-Two-Numbers)   
+[3.Longoest Substring Without Repeating Characters](https://github.com/rasp210/study/edit/master/algorithm/leetcode.md#3Longoest-Substring-Without-Repeating-Characters)   
+
 # 1.Two Sum
 
->Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.
->You may assume that each input would have **exactly** one solution, and you may not use the same element twice.
+>Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.   
+>You may assume that each input would have **exactly** one solution, and you may not use the same element twice.   
 
-**Example:**
+**Example**   
+>Given nums = [2, 7, 11, 15], target = 9,   
+>Because nums[0] + nums[1] = 2 + 7 = 9,   
+>return [0, 1].   
 
->Given nums = [2, 7, 11, 15], target = 9,
->Because nums[0] + nums[1] = 2 + 7 = 9,
->return [0, 1].
-
-**Solution**
-```
+**Solution**   
+>Time: 52ms   
+>Space: 1   
+>Defeat: 82.97%   
+```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  * O(n*n) 52ms
@@ -40,23 +47,18 @@ int* twoSum(int* nums, int numsSize, int target) {
 
 # 3.Longoest Substring Without Repeating Characters
 
->最长无重复字符子串
->Given a string, find the length of the longest substring without repeating characters.
+>最长无重复字符子串   
+>Given a string, find the length of the longest substring without repeating characters.   
 
 **Example**
-
->Given "abcabcbb", the answer is "abc", which the length is 3.
->
->Given "bbbbb", the answer is "b", with the length of 1.
->
->Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+>Given "abcabcbb", the answer is "abc", which the length is 3.   
+>Given "bbbbb", the answer is "b", with the length of 1.   
+>Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.   
 
 **Solution**
-
->Time: 24ms
->Space: 128
->Defeat: 53.9%
-
+>Time: 24ms   
+>Space: 128   
+>Defeat: 53.9%   
 ```c
 #include <stdio.h>
 #include <string.h>
