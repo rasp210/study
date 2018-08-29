@@ -4,9 +4,9 @@ Writing someting about my work.
 
 ## A
 ### [Algorithm](https://github.com/rasp210/study/blob/master/algorithm)
-#### [LeetCode](https://github.com/rasp210/study/blob/master/algorithm/leetcode.md)
-#### [几种常见的排序算法](https://github.com/rasp210/study/blob/master/algorithm/sort.md)
-#### [数组循环右移k位](https://github.com/rasp210/study/blob/master/algorithm/array-cycle-right-shift.md)
+1. [LeetCode](https://github.com/rasp210/study/blob/master/algorithm/leetcode.md)
+2. [几种常见的排序算法](https://github.com/rasp210/study/blob/master/algorithm/sort.md)
+3. [数组循环右移k位](https://github.com/rasp210/study/blob/master/algorithm/array-cycle-right-shift.md)
 -----
 
 ## D
