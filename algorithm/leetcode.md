@@ -9,9 +9,6 @@
 >return [0, 1].   
 
 **Solution**   
->Time: 52ms   
->Space: 1   
->Defeat: 82.97%   
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -48,9 +45,6 @@ int* twoSum(int* nums, int numsSize, int target) {
 >Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.   
 
 **Solution**
->Time: 24ms   
->Space: 128   
->Defeat: 53.9%   
 ```c
 /**
  * 1.用一个int类型的数组map来存储字符-索引
@@ -87,5 +81,97 @@ int main(void) {
     int max = lengthOfLongestSubstring(s);
 	printf("Max=%d", max);
 	return 0;
+}
+```
+
+# 206.Reverse Linked List
+
+>反转单链表
+>Reverse a singly linked list.
+
+**Example**   
+>Input: 1->2->3->4->5->NULL   
+>Output: 5->4->3->2->1->NULL   
+
+**Solution 1**   
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* reverseList(struct ListNode* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+    
+    struct ListNode* pre = head;
+    struct ListNode* cur = head->next;
+    struct ListNode* temp;
+    
+    while (cur) {
+        temp = cur->next;
+        cur->next = pre;
+        pre = cur;
+        cur = temp;
+    }
+    head->next = NULL;
+    return pre;
+}
+```
+
+**Solution 2**
+
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* reverseList(struct ListNode* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+    
+    struct ListNode* newHead = reverseList(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return newHead;
+}
+```
+
+
+
+# 344.Reverse String
+
+> 反转字符串   
+> Write a function that takes a string as input and returns the string reversed.
+
+**Example**
+>Input: "hello"   
+>Output: "olleh"  
+>    
+>Input: "A man, a plan, a canal: Panama"   
+>Output: "amanaP :lanac a ,nalp a ,nam A"   
+
+**Solution**
+```c
+char* reverseString(char* s) {
+    int len = strlen(s);
+    if (len <= 1) {
+        return s;
+    }
+    
+    char temp;
+    for (int l = 0, r = len -1; l < r; l++, r--) {
+        temp = s[l];
+        s[l] = s[r];
+        s[r] = temp;
+    }
+    return s;
 }
 ```

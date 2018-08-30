@@ -123,6 +123,9 @@
 - 自定义变量
 
   ```shell
+  # 1.变量赋值：{a=$1;b=$0;}
+  # 2.数组赋值：{a[$1]=$0;}
+  
   $ awk '{count++; print $0;} END {print "user count is " count;}' file
   a 2
   d 3
@@ -149,9 +152,9 @@
 - 条件语句
 
   ```shell
-  # if () {}
-  # if () {} else {}
-  # if () {} else if () {} else {}
+  # {if (bool) {action}}
+  # {if (bool) {action} else {action}}
+  # {if (bool) {action} else if (bool) {action} else {action}}
   $ ls l | awk 'BEGIN {size = 0;} {if ($5 > 30) {size += $5;}} END {print "total size is " size;}' 
   total size is 167
   ```
@@ -159,11 +162,14 @@
 - 循环语句
 
   ```shell
-  # while () {}
-  # do {} while ()
-  # for () {}
-  # break
-  # continue
+  # {while (bool) {action}}
+  # {do {action} while (bool)}
+  # {for (int i = 0; i < len; len++) {action}}
+  # {for (item in c) {action}}
+  # {break;}
+  # {continue;}
+  # {exit;} 退出程序
+  # {next;} 跳转到下一行
   $ awk -F ':' 'BEGIN {count=0;} {name[count] = $1; count++;} END {for (i = 0; i < NR; i++) {print i,name[i]}}' /etc/passwd
   0 root
   1 daemon
