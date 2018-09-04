@@ -138,7 +138,7 @@ int main(void) {
 ## 插入排序
 
 稳定，升序算法：
-```
+```c
 #include <stdio.h>
 
 void swap(int A[], int i, int j) {
@@ -176,7 +176,52 @@ int main(void) {
 ```
 
 ## 希尔排序
+稳定   
+Space：O(n)   
+Time：O(nlogn)   
+```c
+#include <stdio.h>
 
+void merge(int A[], int left, int mid, int right) {
+    int i = left, j = mid + 1;
+    int len = right - left + 1;
+    int k = 0;
+    int* temp = new int[len];
+    while (i <= mid && j <= right) {
+        temp[k++] = A[i] > A[j] ? A[j++] : A[i++];
+    }
+    while (i <= mid) {
+        temp[k++] = A[i++];
+    }
+    while (j <= right) {
+        temp[k++] = A[j++];
+    }
+    for (int m = 0; m < len; m++) {
+        A[left++] = temp[m];
+    }
+}
+
+void mergeSort(int A[], int left, int right) {
+    if (left == right) {
+        return;
+    }
+    int mid = (left + right) / 2;
+    mergeSort(A, left, mid);
+    mergeSort(A, mid + 1, right);
+    merge(A, left, mid, right);
+}
+
+int main(void) { 
+    int A[] = {2, 3, 6, 8, 1, 9, 5, 7};
+    int len = sizeof(A) / sizeof(int);
+    mergeSort(A, 0, len - 1);
+    for (int i = 0; i < len; i++) {
+        printf("%d ", A[i]);
+    }
+    printf("\n");
+    return 0;
+}
+```
 
 ## 归并排序
 
