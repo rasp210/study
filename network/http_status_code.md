@@ -16,6 +16,22 @@ HTTP 状态码是用以表示网页服务器 HTTP 响应状态的 3 位数字代
 - 【使用】   
 - header("Location: http://xxx.com");   
 
+### 304 Not Modified 未改变   
+**304 Not Modified**   
+- Indicates that the resource has not been modified since the version specified by the request headers If-Modified-Since or If-None-Match. This means that there is no need to retransmit the resource, since the client still has a previously-downloaded copy.   
+- 
+**Request Headers**   
+- If-None-Match: "xxxxxxaaaaxxx"
+- If-Modified-Since: Thu, 06 Sep 2018 07:51:12 GMT 
+-
+**Reponse Headers**      
+- ETag: "xxxxxxaaaaxxx"      
+- ETag——An identifier for a specific version of a resource, often a message digest
+- Last-Modified: Thu, 06 Sep 2018 07:51:12 GMT   
+**参考文章**   
+[理解HTTP/304响应-中](http://www.cnblogs.com/ziyunfei/archive/2012/11/17/2772729.html)   
+[Understanding HTTP/304 Responses-英](https://www.telerik.com/blogs/understanding-http-304-responses)   
+
 ## 4.请求错误
 ### 400 Bad Request   
 - 【原因】   
