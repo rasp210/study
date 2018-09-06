@@ -19,7 +19,9 @@
 - TSRM 目录   
 >TSRM(Thread Safe Resource Manager)线程安全资源管理器   
 - win32   
-- Zend   
+- Zend  
+>包含zval数据结构   
+ 
 - CODING_STANDARDS 文件   
 >要写PHP扩展的话，需要读一读   
 
