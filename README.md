@@ -45,8 +45,13 @@ Git 是分布式版本控制系统的一种。客户端把仓库完整地镜像�
 
 ## L
 ### [Linux](https://github.com/rasp210/study/blob/master/linux)   
-1. [awk](https://github.com/rasp210/study/blob/master/linux/awk.md)
-2. [uniq](https://github.com/rasp210/study/blob/master/linux/uniq.md)
+- [awk](https://github.com/rasp210/study/blob/master/linux/awk.md)     
+- [ps](https://github.com/rasp210/study/blob/master/linux/ps.md)   
+- [rpm](https://github.com/rasp210/study/blob/master/linux/rpm.md)   
+- [sed](https://github.com/rasp210/study/blob/master/linux/sed.md)   
+- [uniq](https://github.com/rasp210/study/blob/master/linux/uniq.md)
+- [Shell特殊变量](https://github.com/rasp210/study/blob/master/linux/shell-special-variable.md)   
+
 -----
 
 ## N
