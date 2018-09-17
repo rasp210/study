@@ -180,4 +180,7 @@
   ……
   ```
 
-  
+- 有三列数据，每行都是整数以空格隔开，第四列为前三列的和，输出第四列中大于第四列平均值的行   
+```shell
+$ awk 'BEGIN {total=0; sum=0; avg=0;} {sum=$1+$2+$3; a[k++]=sum; total=total+sum;} END {avg=total/NR; for (i=0; i<NR; i++) { if (a[i]>avg) print $i;}}' num
+```
