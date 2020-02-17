@@ -1,12 +1,50 @@
 # Study
 
 Writing someting about my work.
+[TOC]
 
 ## A
-### [Algorithm](https://github.com/rasp210/study/blob/master/algorithm)
-1. [LeetCode](https://github.com/rasp210/study/blob/master/algorithm/leetcode.md)
-2. [几种常见的排序算法](https://github.com/rasp210/study/blob/master/algorithm/sort.md)
-3. [数组循环右移k位](https://github.com/rasp210/study/blob/master/algorithm/array-cycle-right-shift.md)
+### Algorithm
+#### LeetCode
+##### 1.Two Sum
+
+>Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.   
+>You may assume that each input would have **exactly** one solution, and you may not use the same element twice.   
+
+**Example**   
+>Given nums = [2, 7, 11, 15], target = 9,   
+>Because nums[0] + nums[1] = 2 + 7 = 9,   
+>return [0, 1].   
+
+**Solution**   
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* twoSum(int* nums, int numsSize, int target) {
+    int* ret = malloc(2 * sizeof(int)); // 分配内存空间
+    if (numsSize < 2) {
+        return ret;
+    }
+    
+    int i, j;
+    int left;
+    for (i = 0; i < numsSize - 1; i++) {
+        left = target - nums[i];
+        for (j = i + 1; j < numsSize; j++) {
+            if (left == nums[j]) {
+                ret[0] = i;
+                ret[1] = j;   
+            }
+        }
+    }
+    return ret;
+}
+```
+
+#### 几种常见的排序算法
+
+#### 数组循环右移k位
 -----
 
 ## D
@@ -43,6 +81,53 @@ Git 是分布式版本控制系统的一种。客户端把仓库完整地镜像�
 3. [冲突解决](https://github.com/rasp210/study/tree/master/git/conflict.md)
 -----
 
+## J
+### Java
+#### 基础
+##### 1. Java类加载机制？
+
+#### 虚拟机
+##### 1. 常见的垃圾回收器
+SerialGC
+ParallelGC
+CMS
+G1
+基本原理？
+适用于什么样的工作负载？
+
+##### 2. 诊断工具？
+jmap
+jstack
+jconsole
+jhsdb
+jcmd
+
+##### 3. java是解释执行还是编译执行
+javac是将源码编译成字节码的.class文件
+在运行时，JVM会通过类加载器加载字节码，解释或者编译执行
+JDK8是解释和编译混合的一种模式(-Xmixed)
+通常运行在server模式下的JVM，会进行上万次的调用，以收集足够的信息进行高效编译
+client模式这个门限是1500次，适用于对启动速度敏感的应用
+默认采用分层编译
+AOT编译（Ahead Of Time Compililation）：直接将字节码编译成机器码，这样就避免了JIT预热等各方面的开销（JDK9）
+
+##### 4. java应用启动参数
+-Xint：JVM仅进行解释执行
+-Xcomp：JVM仅进行编译执行，最大优化级别
+JDK9
+jaotc --output libHelloWorld.so HelloWorld.class
+jaotc --output libjava.base.so --module java.base
+java -XX:AOTLibrary=./libHelloWorld.so,./libjava.base.so HelloWorld
+
+#### IO/NIO
+#### 并发
+#### 分布式
+#### 安全
+#### 性能
+#### 范型
+#### Lambda
+#### 反射
+-----
 ## L
 ### [Linux](https://github.com/rasp210/study/blob/master/linux)   
 - [awk](https://github.com/rasp210/study/blob/master/linux/awk.md)     
