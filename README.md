@@ -1,47 +1,66 @@
 # Study
 
-Writing someting about my work.
 [TOC]
 
 ## A
 ### Algorithm
 #### LeetCode
-##### 1.Two Sum
+##### 10.正则表达式匹配
+```
+给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
 
->Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.   
->You may assume that each input would have **exactly** one solution, and you may not use the same element twice.   
+'.' 匹配任意单个字符
+'*' 匹配零个或多个前面的那一个元素
+所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
 
-**Example**   
->Given nums = [2, 7, 11, 15], target = 9,   
->Because nums[0] + nums[1] = 2 + 7 = 9,   
->return [0, 1].   
+说明:
 
-**Solution**   
-```c
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-int* twoSum(int* nums, int numsSize, int target) {
-    int* ret = malloc(2 * sizeof(int)); // 分配内存空间
-    if (numsSize < 2) {
-        return ret;
-    }
-    
-    int i, j;
-    int left;
-    for (i = 0; i < numsSize - 1; i++) {
-        left = target - nums[i];
-        for (j = i + 1; j < numsSize; j++) {
-            if (left == nums[j]) {
-                ret[0] = i;
-                ret[1] = j;   
-            }
-        }
-    }
-    return ret;
-}
+s 可能为空，且只包含从 a-z 的小写字母。
+p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。
+示例 1:
+
+输入:
+s = "aa"
+p = "a"
+输出: false
+解释: "a" 无法匹配 "aa" 整个字符串。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/regular-expression-matching
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ```
 
+```java
+public static void main(String[] args) {
+    String[][] arr = {
+            {"", ""},
+            {"", "a*"},
+            {"aa", "a*"},
+            {"aa", ".*"},
+            {"ab", "c*a*b"},
+            {"a", ""},
+            {"", "a"},
+            {"", "."},
+            {"aa", "a"},
+    };
+    for (String[] item: arr) {
+        System.out.println(isMatch(item[0], item[1]));
+    }
+}
+public static boolean isMatch(String s, String p) {
+	if (p.isEmpty()) {
+		return s.isEmpty();
+	}
+
+	boolean firstMatch = (!s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.'));
+
+	if (p.length() >= 2 && p.charAt(1) == '*') {
+		return (firstMatch && isMatch(s.substring(1), p)) || isMatch(s, p.substring(2));
+	} else {
+		return firstMatch && isMatch(s.substring(1), p.substring(1));
+	}
+}
+```
 #### 几种常见的排序算法
 
 #### 数组循环右移k位
