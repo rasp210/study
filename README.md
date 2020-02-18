@@ -5,62 +5,115 @@
 ## A
 ### Algorithm
 #### LeetCode
-##### 10.正则表达式匹配
-```
-给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
-
-'.' 匹配任意单个字符
-'*' 匹配零个或多个前面的那一个元素
-所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
-
-说明:
-
-s 可能为空，且只包含从 a-z 的小写字母。
-p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。
-示例 1:
-
-输入:
-s = "aa"
-p = "a"
-输出: false
-解释: "a" 无法匹配 "aa" 整个字符串。
-
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/regular-expression-matching
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-```
-
+##### 10. 正则表达式匹配
 ```java
-public static void main(String[] args) {
-    String[][] arr = {
-            {"", ""},
-            {"", "a*"},
-            {"aa", "a*"},
-            {"aa", ".*"},
-            {"ab", "c*a*b"},
-            {"a", ""},
-            {"", "a"},
-            {"", "."},
-            {"aa", "a"},
-    };
-    for (String[] item: arr) {
-        System.out.println(isMatch(item[0], item[1]));
-    }
-}
-public static boolean isMatch(String s, String p) {
-	if (p.isEmpty()) {
-		return s.isEmpty();
+/**
+ * LC10
+ * 正则表达式匹配
+ * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
+ *
+ * '.' 匹配任意单个字符
+ * '*' 匹配零个或多个前面的那一个元素
+ * 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+ *
+ * 说明:
+ *
+ * s 可能为空，且只包含从 a-z 的小写字母。
+ * p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。
+ * 示例 1:
+ *
+ * 输入:
+ * s = "aa"
+ * p = "a"
+ * 输出: false
+ * 解释: "a" 无法匹配 "aa" 整个字符串。
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/regular-expression-matching
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+public class Solution {
+	public static void main(String[] args) {
+	    String[][] arr = {
+	            {"", ""},
+	            {"", "a*"},
+	            {"aa", "a*"},
+	            {"aa", ".*"},
+	            {"ab", "c*a*b"},
+	            {"a", ""},
+	            {"", "a"},
+	            {"", "."},
+	            {"aa", "a"},
+	    };
+	    for (String[] item: arr) {
+	        System.out.println(isMatch(item[0], item[1]));
+	    }
 	}
+	public static boolean isMatch(String s, String p) {
+		if (p.isEmpty()) {
+			return s.isEmpty();
+		}
 
-	boolean firstMatch = (!s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.'));
+		boolean firstMatch = (!s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.'));
 
-	if (p.length() >= 2 && p.charAt(1) == '*') {
-		return (firstMatch && isMatch(s.substring(1), p)) || isMatch(s, p.substring(2));
-	} else {
-		return firstMatch && isMatch(s.substring(1), p.substring(1));
+		if (p.length() >= 2 && p.charAt(1) == '*') {
+			return (firstMatch && isMatch(s.substring(1), p)) || isMatch(s, p.substring(2));
+		} else {
+			return firstMatch && isMatch(s.substring(1), p.substring(1));
+		}
 	}
 }
 ```
+
+##### 11. 盛最多水的容器
+```java
+/**
+ * LC11
+ * 盛最多水的容器
+ * 给定 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+ *
+ * 说明：你不能倾斜容器，且 n 的值至少为 2。
+ *
+ * 示例:
+ * 输入: [1,8,6,2,5,4,8,3,7]
+ * 输出: 49
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/container-with-most-water
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+ public class Solution {
+ 	public static void main(String[] args) {
+ 		int[][] arrs = {
+                {1, 8, 6, 2, 5, 4, 8, 3, 7},
+                {1, 8},
+                {1, 8, 6},
+                {1, 8, 6, 2},
+                {1, 8, 6, 2, 5},
+                {1, 8, 6, 2, 5, 4},
+                {1, 8, 6, 2, 5, 4, 8},
+                {1, 8, 6, 2, 5, 4, 8, 3}
+        };
+        for (int[] arr: arrs) {
+            System.out.println(maxArea(arr));
+        }
+ 	}
+
+ 	public static int maxArea(int[] height) {
+ 		int max = 0;
+        int l = 0, r = height.length - 1;
+        while (l < r) {
+            max = Math.max(max, Math.min(height[l], height[r]) * (r - l));
+            if (height[l] < height[r]) {
+                l++;
+            } else {
+                r--;
+            }
+        }
+        return max;
+    }
+ }
+```
+
 #### 几种常见的排序算法
 
 #### 数组循环右移k位
