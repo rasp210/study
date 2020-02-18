@@ -158,6 +158,21 @@ Git 是分布式版本控制系统的一种。客户端把仓库完整地镜像�
 #### 基础
 ##### 1. Java类加载机制？
 
+##### 2. Exception和Error有什么区别？
+```
+Exception和Error都是继承自Throwable类，Java中只有Throwable类型的实例才可以被抛出或者捕获，它是异常处理机制的基本组成类型，体现了Java平台设计者对不同异常情况的分类。
+Exception是程序正常运行过程中，可以预料的意外情况，可以并且应该被捕获，进行相应处理。
+Error是指在正常情况下，不大可能出现的情况，绝大多数Error都会导致程序处于非正常、不可恢复状态，不便于也不需要捕获。
+异常又可以分为可检查和不检查异常，可检查异常必须显示的进行捕获处理，这是编译期检查的一部分；不检查异常包括运行时异常和Error。
+```
+
+##### 3. final、finally和finalize有什么不同？
+```
+final可以用来修饰类、方法、变量，final类不可以被继承，final方法不可以被重写，final变量不可以被修改。
+finally是java保证重要代码一定要被执行的一种机制，通常使用try-finally或try-catch-finally来进行类似资源关闭等操作。
+finalize是java.lang.Object的一个方法，是保证对象在被垃圾回收前完成特定资源的回收，在JDK9中已经标记为deprecated。
+```
+
 #### 虚拟机
 ##### 1. 常见的垃圾回收器
 SerialGC
