@@ -114,6 +114,156 @@ public class Solution {
  }
 ```
 
+##### 15. 三数之和
+```java
+/**
+ * LC15
+ * 三数之和
+ * 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
+ *
+ * 注意：答案中不可以包含重复的三元组。
+ *
+ *
+ * 示例：
+ *
+ * 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+ *
+ * 满足要求的三元组集合为：
+ * [
+ *   [-1, 0, 1],
+ *   [-1, -1, 2]
+ * ]
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/3sum
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+public class Solution {
+    public static void main(String[] args) {
+        int[][] arrs = {
+                {-1, 0, 1, 2, -1, -4},
+                {-2, 0, 0, 0, 2}
+        };
+        for (int[] arr: arrs) {
+            System.out.println(threeSum(arr).toString());
+        }
+    }
+
+    public static List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums.length < 3) {
+            return result;
+        }
+
+        Arrays.sort(nums);
+
+        int second, third, sum;
+        for (int first = 0; first < nums.length - 2; first++) {
+            if (first == 0 || nums[first] > nums[first - 1]) {
+                second = first + 1;
+                third = nums.length - 1;
+                while (second < third) {
+                    sum = nums[first] + nums[second] + nums[third];
+                    if (sum == 0) {
+                        result.add(Arrays.asList(nums[first], nums[second], nums[third]));
+                        second++;
+                        third--;
+                        while (second < third && nums[second] == nums[second - 1]) {
+                            second++;
+                        }
+                        while (second < third && nums[third] == nums[third + 1]) {
+                            third--;
+                        }
+                    } else if (sum < 0) {
+                        second++;
+                        while (second < third && nums[second] == nums[second - 1]) {
+                            second++;
+                        }
+                    } else {
+                        third--;
+                        while (second < third && nums[third] == nums[third + 1]) {
+                            third--;
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    }
+}
+```
+
+##### 17. 电话号码的字母组合
+```java
+/**
+ * LC17
+ * 电话号码的字母组合
+ * 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。
+ *
+ * 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+ *
+ *
+ * 示例:
+ *
+ * 输入："23"
+ * 输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+public class LetterCombinations {
+    public static void main(String[] args) {
+        System.out.println(letterCombinations("23"));
+        System.out.println(letterCombinations(""));
+        System.out.println(letterCombinations("34"));
+    }
+
+    private static List<String> letterCombinations(String digits) {
+        List<String> result = new ArrayList<>();
+        if (!digits.matches("^[2-9]+$")) {
+            return result;
+        }
+
+        Map<String, String> map = new HashMap<>();
+        map.put("2", "abc");
+        map.put("3", "def");
+        map.put("4", "ghi");
+        map.put("5", "jkl");
+        map.put("6", "mno");
+        map.put("7", "pqrs");
+        map.put("8", "tuv");
+        map.put("9", "wxyz");
+        List<String> strList = new ArrayList<>();
+        for (int i = 0; i < digits.length(); i++) {
+            strList.add(map.get(digits.substring(i, i + 1)));
+        }
+
+        result = combinationRecursive(strList);
+        return result;
+    }
+
+    private static List<String> combinationRecursive(List<String> strList) {
+        List<String> result = new ArrayList<>();
+        if (strList.size() == 0) {
+            return result;
+        }
+
+        String str = strList.get(0);
+        strList.remove(0);
+        List<String> resultList = combinationRecursive(strList);
+        if (resultList.size() == 0) {
+            resultList.add("");
+        }
+        for (int j = 0; j < str.length(); j++) {
+            for (String item: resultList) {
+                result.add(str.substring(j, j + 1) + item);
+            }
+        }
+        return result;
+    }
+```
+
 #### 几种常见的排序算法
 
 #### 数组循环右移k位
@@ -169,8 +319,8 @@ Error是指在正常情况下，不大可能出现的情况，绝大多数Error�
 ##### 3. final、finally和finalize有什么不同？
 ```
 final可以用来修饰类、方法、变量，final类不可以被继承，final方法不可以被重写，final变量不可以被修改。
-finally是java保证重要代码一定要被执行的一种机制，通常使用try-finally或try-catch-finally来进行类似资源关闭等操作。
-finalize是java.lang.Object的一个方法，是保证对象在被垃圾回收前完成特定资源的回收，在JDK9中已经标记为deprecated。
+finally是java保证重要代码一定要被执行的一种机制，通常使用try-finally或try-catch-finally来进行类似资源关闭等操作。但是更推荐使用JDK7中try-with-resources语句来关闭资源。
+finalize是java.lang.Object的一个方法，是保证对象在被垃圾回收前完成特定资源的回收，在JDK9中已经标记为deprecated。java目前逐步使用java.lang.ref.Cleaner来替换原有的finalize，Cleaner的实现利用了幻象引用，这是一种常见的post-mortem机制。
 ```
 
 #### 虚拟机
