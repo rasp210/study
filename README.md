@@ -234,30 +234,23 @@ public class LetterCombinations {
         map.put("7", "pqrs");
         map.put("8", "tuv");
         map.put("9", "wxyz");
-        List<String> strList = new ArrayList<>();
-        for (int i = 0; i < digits.length(); i++) {
-            strList.add(map.get(digits.substring(i, i + 1)));
-        }
-
-        result = combinationRecursive(strList);
-        return result;
+        return combination(digits, 0, map);
     }
 
-    private static List<String> combinationRecursive(List<String> strList) {
+    private static List<String> combination(String digits, int index, Map<String, String> map) {
         List<String> result = new ArrayList<>();
-        if (strList.size() == 0) {
+        if (digits.length() <= index) {
             return result;
         }
 
-        String str = strList.get(0);
-        strList.remove(0);
-        List<String> resultList = combinationRecursive(strList);
-        if (resultList.size() == 0) {
-            resultList.add("");
+        List<String> leftResult = combination(digits, index + 1, map);
+        if (leftResult.size() == 0) {
+            leftResult.add("");
         }
-        for (int j = 0; j < str.length(); j++) {
-            for (String item: resultList) {
-                result.add(str.substring(j, j + 1) + item);
+        String letter = map.get(String.valueOf(digits.charAt(index)));
+        for (int i = 0; i < letter.length(); i++) {
+            for (String item: leftResult) {
+                result.add(letter.charAt(i) + item);
             }
         }
         return result;
