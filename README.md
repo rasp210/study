@@ -12,7 +12,7 @@
     - [Java基础](#Java基础)
     - [JVM](#JVM)
     - [Spring](#Spring)
-    - [Spring Boot](#Spring Boot)
+    - [Spring Boot](#Spring%20Boot)
 - [Profile](#Profile)
 
 # Study
@@ -52,6 +52,7 @@ Git 是分布式版本控制系统的一种。客户端把仓库完整地镜像�
 ### [JVM](https://github.com/rasp210/study/blob/master/java-jvm.md)
 ### [Spring](https://github.com/rasp210/study/blob/master/java-spring.md)
 ### [Spring Boot](https://github.com/rasp210/study/blob/master/java-spring-boot.md)
+### [Spring%20Boot](https://github.com/rasp210/study/blob/master/java-spring-boot.md)
 ##### 1. Java类加载机制？
 
 ##### 2. Exception和Error有什么区别？
